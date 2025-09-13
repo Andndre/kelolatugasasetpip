@@ -1,0 +1,221 @@
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+// Variables
+@import 'variables';
+
+// Import Bootstrap base
+@import "bootstrap/scss/bootstrap";
+
+// Layout base
+body {
+    background-color: $body-bg;
+    font-family: $font-family-sans-serif;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: $sidebar-width;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 1000;
+    transition: width 0.3s ease;
+
+    nav {
+        height: 100%;
+        border-right: 1px solid $gray-300;
+        background-color: $white !important;
+    }
+
+    .nav-link {
+        color: $gray-700;
+        border-radius: 8px;
+        padding: 10px 14px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: $gray-200;
+            color: $black;
+        }
+
+        &.active {
+            background-color: $primary-bg;
+            color: $primary;
+            font-weight: 600;
+        }
+    }
+}
+
+// Sidebar collapsed
+#sidebar.collapsed {
+    width: $sidebar-collapsed-width !important;
+
+    .nav-link {
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+        padding: 10px;
+        border-radius: 8px;
+
+        i {
+            margin: 0 !important;
+            font-size: 1rem;
+            display: block;
+            text-align: center;
+            width: 100%;
+        }
+
+        span,
+        .nav-item-text {
+            display: none !important;
+        }
+    }
+
+    hr {
+        margin: 0.75rem 0;
+    }
+}
+
+
+// Content wrapper
+#content {
+    min-height: 100vh;
+    margin-left: $sidebar-width;
+    width: calc(100% - $sidebar-width);
+    padding-left: 0 !important;
+    transition: margin-left 0.3s ease, width 0.3s ease;
+
+    .card {
+        overflow: hidden;
+    }
+
+    .card-header {
+        background-color: inherit;
+        border-bottom: inherit;
+        font-weight: 600;
+        border: none;
+    }
+}
+
+#sidebar.collapsed .nav-link:hover {
+    background-color: $gray-200;
+    color: $black;
+}
+
+#sidebar.collapsed ~ #content {
+    margin-left: $sidebar-collapsed-width;
+    width: calc(100% - $sidebar-collapsed-width);
+}
+
+.table {
+    th {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        color: $gray-600;
+        background-color: $gray-100;
+    }
+
+    td {
+        vertical-align: middle;
+    }
+}
+
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.btn-outline-secondary {
+    border-color: $gray-400;
+    color: $gray-800;
+
+    &:hover {
+        background-color: $gray-200;
+    }
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid $gray-400;
+    background-color: $white;
+    color: $black;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+
+    &::placeholder {
+        color: $gray-500;
+    }
+
+    &:focus {
+        border-color: $primary;
+        box-shadow: 0 0 0 0.2rem rgba($primary, 0.15);
+        background-color: $white;
+        color: $black;
+    }
+
+    &:disabled {
+        background-color: $gray-200;
+        color: $gray-500;
+    }
+}
+
+// Label form
+.form-label {
+    font-weight: 500;
+    color: $gray-800;
+    margin-bottom: 0.4rem;
+}
+
+// Select styling
+.form-select {
+    border-radius: 8px;
+    border: 1px solid $gray-400;
+    padding: 0.5rem 2rem 0.5rem 0.75rem;
+    color: $black;
+
+    &:focus {
+        border-color: $primary;
+        box-shadow: 0 0 0 0.2rem rgba($primary, 0.15);
+    }
+}
+
+.form-check-input {
+    border-radius: 0.35rem;
+    border: 1px solid $gray-400;
+
+    &:checked {
+        background-color: $primary;
+        border-color: $primary;
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 0.2rem rgba($primary, 0.15);
+    }
+}
+
+.form-check-label {
+    color: $gray-800;
+    font-size: 0.9rem;
+}
+
+// Input group
+.input-group-text {
+    background-color: $secondary;
+    border: 1px solid $gray-400;
+    color: $gray-800;
+    font-weight: 500;
+}
