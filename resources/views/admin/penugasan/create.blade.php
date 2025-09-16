@@ -21,11 +21,11 @@
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label class="form-label">Tanggal Mulai</label>
-                        <input type="text" class="form-control" value="20-01-2025 18:00">
+                        <input type="datetime-local" class="form-control" value="2025-01-20T18:00">
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Tanggal Selesai</label>
-                        <input type="text" class="form-control" value="20-01-2025 18:00">
+                        <input type="datetime-local" class="form-control" value="2025-01-20T18:00">
                     </div>
                 </div>
 

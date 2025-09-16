@@ -26,13 +26,13 @@
         <nav class="card">
             <div class="card-body justify-content-between d-flex flex-column">
                 <ul class="nav flex-column">
-                    <li class="nav-item"><a href="{{ route('admin.home') }}" class="nav-link {{ request()->routeIs('admin.home') ? 'active' : '' }}"> <i class="bi bi-grid me-2"></i> <span class="nav-item-text">Dashboard</span></a></li>
-                    <li class="nav-item"><a href="{{ route('admin.penugasan.index') }}" class="nav-link {{ request()->routeIs('admin.penugasan.*') ? 'active' : '' }}"> <i class="bi bi-inbox me-2"></i> <span class="nav-item-text">Penugasan</span></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link"> <i class="bi bi-people me-2"></i> <span class="nav-item-text">Users</span></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link"> <i class="bi bi-clipboard-check me-2"></i> <span class="nav-item-text">Kehadiran</span></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link"> <i class="bi bi-pause-circle me-2"></i> <span class="nav-item-text">Izin</span></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link"> <i class="bi bi-arrow-left-right me-2"></i> <span class="nav-item-text">Approval Petugas</span></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link"> <i class="bi bi-box me-2"></i> <span class="nav-item-text">Asset</span></a></li>
+                    <x-sidebar-list-item :icon="'bi-grid'" :title="'Dashboard'" :route="'admin.home'" :route-is="'admin.home'" />
+                    <x-sidebar-list-item :icon="'bi-inbox'" :title="'Penugasan'" :route="'admin.penugasan.index'" :route-is="'admin.penugasan.*'" />
+                    <x-sidebar-list-item :icon="'bi-people'" :title="'Users'" :route="'admin.users.index'" :route-is="'admin.users.*'" />
+                    <x-sidebar-list-item :icon="'bi-clipboard-check'" :title="'Kehadiran'" :route="'admin.kehadiran.index'" :route-is="'admin.kehadiran.*'" />
+                    <x-sidebar-list-item :icon="'bi-pause-circle'" :title="'Izin'" :route="'admin.izin.index'" :route-is="'admin.izin.*'" />
+                    <x-sidebar-list-item :icon="'bi-arrow-left-right'" :title="'Approval Petugas'" :route="'admin.approval-tugas.index'" :route-is="'admin.approval.*'" />
+                    <x-sidebar-list-item :icon="'bi-box'" :title="'Asset'" :route="'admin.assets.index'" :route-is="'admin.asset.*'" />
                 </ul>
                 <div>
                     <hr>
