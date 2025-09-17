@@ -8,4 +8,14 @@ class UserController extends Controller
     {
         return view('admin.users.index');
     }
+
+    public function create()
+    {
+        return view('admin.users.create');
+    }
+
+    public function show()
+    {
+        return view('admin.users.show');
+    }
 }

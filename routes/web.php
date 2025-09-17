@@ -22,6 +22,8 @@ Route::group(['middleware' => 'auth', 'as' => 'admin.', 'prefix' => '/'], functi
 
     Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
         Route::get('/', [\App\Http\Controllers\UserController::class, 'index'])->name('index');
+        Route::get('/create', [\App\Http\Controllers\UserController::class, 'create'])->name('create');
+        Route::get('/1', [\App\Http\Controllers\UserController::class, 'show'])->name('show');
     });
 
     Route::group(['prefix' => 'izin', 'as' => 'izin.'], function () {
