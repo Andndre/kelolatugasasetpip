@@ -219,3 +219,129 @@ h1, h2, h3, h4, h5, h6 {
     color: $gray-800;
     font-weight: 500;
 }
+
+// Dashboard specific styles
+.dashboard-main-content {
+    border: 2px solid #dee2e6;
+    border-radius: 12px;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    aspect-ratio: 32 / 8;
+
+    .banner-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+}
+
+.time-date-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    .time-pill,
+    .date-pill {
+        background-color: #e9ecef;
+        padding: 0.75rem 1.5rem;
+        border-radius: 25px;
+        font-weight: 500;
+        color: #495057;
+        border: none;
+        font-size: 0.95rem;
+    }
+}
+
+.calendar-section {
+    position: relative;
+    margin-left: auto;
+
+    .calendar-input {
+        background: white;
+        border: 2px solid #dee2e6;
+        border-radius: 8px;
+        padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+        font-size: 0.9rem;
+        color: #495057;
+        width: 140px;
+
+        &:focus {
+            border-color: #86b7fe;
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
+    }
+
+    .calendar-icon {
+        position: absolute;
+        right: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #6c757d;
+        pointer-events: none;
+    }
+}
+
+// Flatpickr calendar custom styling
+.flatpickr-calendar {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+
+    .flatpickr-months {
+        background: white;
+        border-bottom: 1px solid #dee2e6;
+
+        .flatpickr-month {
+            color: #495057;
+            font-weight: 600;
+        }
+
+        .flatpickr-prev-month,
+        .flatpickr-next-month {
+            color: #6c757d;
+
+            &:hover {
+                color: #495057;
+            }
+        }
+    }
+
+    .flatpickr-weekdays {
+        background: #f8f9fa;
+
+        .flatpickr-weekday {
+            color: #6c757d;
+            font-weight: 500;
+            font-size: 0.8rem;
+        }
+    }
+
+    .flatpickr-days {
+        .flatpickr-day {
+            color: #495057;
+            border-radius: 4px;
+
+            &:hover {
+                background: #e9ecef;
+                border-color: #e9ecef;
+            }
+
+            &.selected {
+                background: #495057;
+                border-color: #495057;
+                color: white;
+            }
+
+            &.today {
+                border-color: #86b7fe;
+                color: #0d6efd;
+            }
+        }
+    }
+}

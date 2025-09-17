@@ -59,7 +59,9 @@
 
     <!-- Content -->
     <div id="content" class="flex-grow-1 p-3">
-        @yield('content')
+        <div class="card shadow-sm mb-3">
+            @yield('content')
+        </div>
     </div>
 </div>
 </body>
