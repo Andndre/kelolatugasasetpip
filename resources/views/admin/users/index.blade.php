@@ -17,7 +17,7 @@
                 </button>
             </div>
             <!-- Add User Button -->
-            <a href="{{ route('admin.users.create') }}" class="btn btn-dark">+ Tambah User</a>
+            <a href="{{ route('admin.users.create') }}" class="btn btn-primary">+ Tambah User</a>
         </div>
     </div>
     <div class="card-body">

@@ -1,6 +1,41 @@
 @extends('layouts.admin')
 
 @section('content')
+    @push('css')
+        <!-- Include Flatpickr CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    @endpush
+    @push('js')
+        <!-- Include Flatpickr JS -->
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Initialize inline calendar
+                flatpickr("#calendar-display", {
+                    inline: true,
+                    dateFormat: "Y-m-d",
+                    defaultDate: new Date(),
+                    showMonths: 1,
+                    static: true, // Prevent calendar from repositioning
+                    onChange: function (selectedDates, dateStr, instance) {
+                        console.log("Selected date:", dateStr);
+                    },
+                    locale: {
+                        firstDayOfWeek: 1,
+                        weekdays: {
+                            shorthand: ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
+                            longhand: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu']
+                        },
+                        months: {
+                            shorthand: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Ags', 'Sep', 'Okt', 'Nov', 'Des'],
+                            longhand: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
+                        }
+                    }
+                });
+            });
+        </script>
+    @endpush
     <div class="card-header d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center gap-2">
             <button class="btn btn-light btn-sm" id="sidebarToggle">
@@ -14,76 +49,27 @@
         <div class="dashboard-main-content">
             <img src="{{ asset('images/banner.jpg') }}" alt="Banner" class="banner-image">
         </div>
-
-        <!-- Time, Date, and Calendar Section -->
-        <div class="time-date-container">
-            <div class="time-pill" id="currentTime">
-                9:41 AM
+        <div class="row g-4">
+            <!-- Left Column: Main Content -->
+            <div class="col-lg-8">
+                <!-- Time and Date Section -->
+                <div class="time-date-container">
+                    <div class="time-pill" id="currentTime">
+                        9:41 AM
+                    </div>
+                    <div class="date-pill" id="currentDate">
+                        Apr 1, 2025
+                    </div>
+                </div>
             </div>
-            <div class="date-pill" id="currentDate">
-                Apr 1, 2025
-            </div>
-
-            <!-- Calendar Section -->
-            <div class="calendar-section">
-                <input type="text" id="calendar" class="calendar-input" placeholder="09/05/1992" readonly>
-                <i class="bi bi-calendar3 calendar-icon"></i>
+            <!-- Right Column: Calendar -->
+            <div class="col-lg-4">
+                <div class="card border-2 calendar-widget">
+                    <div class="card-body p-3">
+                        <div id="calendar-display" class="calendar-container"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-    <!-- Include Flatpickr CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
-    <!-- Include Flatpickr JS -->
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Initialize Flatpickr calendar
-            flatpickr("#calendar", {
-                inline: false,
-                dateFormat: "d/m/Y",
-                defaultDate: new Date(),
-                showMonths: 1,
-                monthSelectorType: "dropdown",
-                yearSelectorType: "dropdown",
-                enable: [
-                    function (date) {
-                        return true;
-                    }
-                ],
-                onChange: function (selectedDates, dateStr, instance) {
-                    // Handle date change if needed
-                    console.log("Selected date:", dateStr);
-                }
-            });
-
-            // Update current time
-            function updateTime() {
-                const now = new Date();
-                document.getElementById('currentTime').textContent = now.toLocaleTimeString('en-US', {
-                    hour: 'numeric',
-                    minute: '2-digit',
-                    hour12: true
-                });
-            }
-
-            // Update current date
-            function updateDate() {
-                const now = new Date();
-                document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', {
-                    month: 'short',
-                    day: 'numeric',
-                    year: 'numeric'
-                });
-            }
-
-            // Update time and date immediately and then every second
-            updateTime();
-            updateDate();
-            setInterval(updateTime, 1000);
-            setInterval(updateDate, 60000); // Update date every minute
-        });
-    </script>
 @endsection
