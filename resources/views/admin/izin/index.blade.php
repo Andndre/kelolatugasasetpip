@@ -55,6 +55,7 @@
             </button>
             <h5 class="mb-0">Izin</h5>
         </div>
+        <a href="#" class="btn btn-primary">+ Ajukan Izin</a>
     </div>
     <div class="card-body">
         <div class="row mb-3">
