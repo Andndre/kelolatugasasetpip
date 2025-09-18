@@ -10,6 +10,10 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth', 'as' => 'admin.', 'prefix' => '/'], function () {
     Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    // Sidebar toggle route
+    Route::post('/sidebar/toggle', [\App\Http\Controllers\SidebarController::class, 'toggle'])->name('sidebar.toggle');
+
     Route::group(['prefix' => 'penugasan', 'as' => 'penugasan.'], function () {
         Route::get('/', [\App\Http\Controllers\PenugasanController::class, 'index'])->name('index');
         Route::get('/create', [\App\Http\Controllers\PenugasanController::class, 'create'])->name('create');

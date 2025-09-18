@@ -22,10 +22,10 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body>
+<body class="{{ session('sidebar_collapsed') ? 'sidebar-collapsed' : '' }}">
 <div id="app" class="d-flex">
     <!-- Sidebar -->
-    <div id="sidebar" class="p-3">
+    <div id="sidebar" class="p-3 {{ session('sidebar_collapsed') ? 'collapsed' : '' }}">
         <nav class="card">
             <div class="card-body justify-content-between d-flex flex-column">
                 <ul class="nav flex-column">

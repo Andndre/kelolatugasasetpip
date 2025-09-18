@@ -109,6 +109,12 @@ h1, h2, h3, h4, h5, h6 {
         font-weight: 600;
         border: none;
     }
+
+    // Add class for when sidebar is collapsed via JavaScript
+    &.sidebar-collapsed {
+        margin-left: $sidebar-collapsed-width;
+        width: calc(100% - $sidebar-collapsed-width);
+    }
 }
 
 #sidebar.collapsed .nav-link:hover {
@@ -116,9 +122,12 @@ h1, h2, h3, h4, h5, h6 {
     color: $black;
 }
 
-#sidebar.collapsed ~ #content {
-    margin-left: $sidebar-collapsed-width;
-    width: calc(100% - $sidebar-collapsed-width);
+// Remove the sibling selector and replace with body-level class approach
+body.sidebar-collapsed {
+    #content {
+        margin-left: $sidebar-collapsed-width;
+        width: calc(100% - $sidebar-collapsed-width);
+    }
 }
 
 .table {
